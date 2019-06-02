@@ -40,11 +40,17 @@ Usage
 Run in current terminal
 `./3snake`
 
-Run in current terminal and dump output to file
-`./3snake -o "output_file.txt"`
-
 Daemonize and dump output to file
-`./3snake -d -o "output_file.txt"`
+`./3snake -d -o "/tmp/output_file.txt"`
+
+Configuration
+---
+Located in [config.h](https://github.com/blendin/3snake/blob/master/src/config.h)  
+- __ROOT_DIR__ - root directory when daemonized (relative file paths for -o option will end up here)   
+- __ENABLE_SSH__ - OpenSSH server password auth
+- __ENABLE_SUDO__ - sudo password auth
+- __ENABLE_SU__ (experimental) - su password auth
+- __ENABLE_SSH_CLIENT__ (experimental) - ssh client password auth
 
 Limitations
 ---
@@ -58,9 +64,9 @@ Todo
 |---------------------------------------------------|-----|
 | OpenSSH server password auth                      | X   |
 | sudo                                              | X   |
-| su                                                | ~   |
+| su                                                | X   |
 | regex strings from processes                      | ~   |
-| ssh client                                        | ~   |
+| ssh client                                        | X   |
 
 * Make the process of adding tracers more fluid
 * Yubikey: Ask for second yubikey from end users, OpenSSH
